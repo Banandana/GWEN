@@ -357,6 +357,16 @@ Skin::Base* Base::GetSkin( void )
 	return NULL;
 }
 
+Input::Vita* Base::GetInput( void )
+{
+	if ( m_vitaInput ) { return m_vitaInput; }
+
+	if ( m_Parent ) { return m_Parent->GetInput(); }
+
+	Debug::AssertCheck( 0, "Base::GetInput Returning NULL!\n" );
+	return NULL;
+}
+
 void Base::MoveBy( int x, int y )
 {
 	MoveTo( X() + x, Y() + y );
@@ -606,6 +616,21 @@ void Base::SetSkin( Skin::Base* skin, bool doChildren )
 		for ( Base::List::iterator it = Children.begin(); it != Children.end(); ++it )
 		{
 			( *it )->SetSkin( skin, true );
+		}
+	}
+}
+
+void Base::SetInput( Input::Vita* input, bool doChildren )
+{
+	if ( m_vitaInput == input ) { return; }
+
+	m_vitaInput = input;
+
+	if ( doChildren )
+	{
+		for ( Base::List::iterator it = Children.begin(); it != Children.end(); ++it )
+		{
+			( *it )->SetInput( input, true );
 		}
 	}
 }

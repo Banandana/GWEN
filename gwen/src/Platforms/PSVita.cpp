@@ -6,6 +6,7 @@
 
 #include "Gwen/Macros.h"
 #include "Gwen/Platform.h"
+#include "Gwen/Input/Vita.h"
 
 #include <time.h>
 
@@ -95,8 +96,4 @@ void Gwen::Platform::GetDesktopSize( int & w, int & h )
 {
 	w = 960;
 	h = 544;
-}
-
-void Gwen::Platform::GetCursorPos( Gwen::Point & po )
-{
 }

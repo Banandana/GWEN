@@ -29,7 +29,6 @@ namespace Gwen
 		//
 		//
 		//
-		GWEN_EXPORT void GetCursorPos( Gwen::Point & p );
 		GWEN_EXPORT void GetDesktopSize( int & w, int & h );
 
 		//

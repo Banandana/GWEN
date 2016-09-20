@@ -21,6 +21,7 @@
 #include "Gwen/Skin.h"
 #include "Gwen/ControlList.h"
 #include "Gwen/UserData.h"
+#include "Gwen/Input/Vita.h"
 
 
 namespace Gwen
@@ -196,6 +197,10 @@ namespace Gwen
 				//Skin
 				virtual void SetSkin( Skin::Base* skin, bool doChildren = false );
 				virtual Gwen::Skin::Base* GetSkin( void );
+
+				//Input
+				virtual void SetInput( Gwen::Input::Vita* input, bool doChildren = false );
+				virtual Gwen::Input::Vita* GetInput( void );
 
 				// Background drawing
 				virtual bool ShouldDrawBackground() { return m_bDrawBackground; }
@@ -384,6 +389,8 @@ namespace Gwen
 				Base* m_ToolTip;
 
 				Skin::Base* m_Skin;
+
+				Input::Vita* m_vitaInput;
 
 				Gwen::Rect		m_Bounds;
 				Gwen::Rect		m_RenderBounds;

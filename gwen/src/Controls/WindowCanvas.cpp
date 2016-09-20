@@ -198,7 +198,7 @@ Skin::Base* WindowCanvas::GetSkin( void )
 
 void WindowCanvas::Dragger_Start()
 {
-	Gwen::Platform::GetCursorPos( m_HoldPos );
+	m_vitaInput->GetCursorPos( m_HoldPos );
 	m_HoldPos.x -= m_WindowPos.x;
 	m_HoldPos.y -= m_WindowPos.y;
 }
@@ -206,7 +206,7 @@ void WindowCanvas::Dragger_Start()
 void WindowCanvas::Dragger_Moved()
 {
 	Gwen::Point p;
-	Gwen::Platform::GetCursorPos( p );
+	m_vitaInput->GetCursorPos( p );
 
 	//
 	// Dragged out of maximized
@@ -247,7 +247,7 @@ bool WindowCanvas::IsOnTop()
 void WindowCanvas::Sizer_Moved()
 {
 	Gwen::Point p;
-	Gwen::Platform::GetCursorPos( p );
+	m_vitaInput->GetCursorPos( p );
 	int w = ( p.x ) - m_WindowPos.x;
 	int h = ( p.y ) - m_WindowPos.y;
 	w = Clamp( w, 100, 9999 );

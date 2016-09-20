@@ -55,7 +55,7 @@ namespace Gwen
 			};
 		};
 
-
+		GWEN_EXPORT void GetCursorPos( Gwen::Point & p );
 
 		// For use in panels
 		bool GWEN_EXPORT IsKeyDown( int iKey );
