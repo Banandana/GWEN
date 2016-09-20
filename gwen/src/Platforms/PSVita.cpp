@@ -6,7 +6,6 @@
 
 #include "Gwen/Macros.h"
 #include "Gwen/Platform.h"
-#include "../../input/input.hpp"
 
 #include <time.h>
 
@@ -100,7 +99,4 @@ void Gwen::Platform::GetDesktopSize( int & w, int & h )
 
 void Gwen::Platform::GetCursorPos( Gwen::Point & po )
 {
-	Vector p = Input::GetFirstTouchVector();
-	po.x = p.X;
-	po.y = p.Y;
 }
