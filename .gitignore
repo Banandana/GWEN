@@ -178,3 +178,5 @@ xcschemes
 
 gwen/Projects/windows/*
 gwen/lib/windows/*
+
+.vscode
