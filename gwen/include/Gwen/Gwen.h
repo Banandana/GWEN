@@ -29,7 +29,6 @@
 #define GWEN_GWEN_H
 
 #include <stdlib.h>
-#include <memory.h>
 #include <set>
 #include <list>
 #include <algorithm>
@@ -41,6 +40,7 @@
 #include "Gwen/Skin.h"
 #include "Gwen/Controls/Base.h"
 #include "Gwen/Controls/Canvas.h"
+#include "Gwen/EventHandler.h"
 #include "Gwen/Align.h"
 
 // Enable the hook system (se Hook.h)

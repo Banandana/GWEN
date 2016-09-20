@@ -6,12 +6,15 @@
 
 #include "Gwen/Macros.h"
 #include "Gwen/Platform.h"
-
-#if !defined(_WIN32) && !defined(GWEN_ALLEGRO_PLATFORM)
+#include "../../input/input.hpp"
 
 #include <time.h>
 
+#include <psp2/touch.h>
+
 static Gwen::UnicodeString gs_ClipboardEmulator;
+
+Gwen::Point cursorPos;
 
 void Gwen::Platform::Sleep( unsigned int iMS )
 {
@@ -91,12 +94,13 @@ bool Gwen::Platform::HasFocusPlatformWindow( void* pPtr )
 
 void Gwen::Platform::GetDesktopSize( int & w, int & h )
 {
-	w = 1024;
-	h = 768;
+	w = 960;
+	h = 544;
 }
 
 void Gwen::Platform::GetCursorPos( Gwen::Point & po )
 {
+	Vector p = Input::GetFirstTouchVector();
+	po.x = p.X;
+	po.y = p.Y;
 }
-
-#endif // ndef WIN32

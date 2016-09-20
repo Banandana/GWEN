@@ -4,7 +4,6 @@
 #define GWEN_MACROS_H
 #include <stdlib.h>
 #include <stdarg.h>
-#include <memory.h>
 #include <algorithm>
 
 #ifdef _WIN32
@@ -34,7 +33,9 @@
 
 #else
 
-#error MUST_IMPLEMENT_PLATFORM
+#define GwenUtil_OutputDebugCharString( lpOutputString ) //printf( lpOutputString )
+#define GwenUtil_OutputDebugWideString( lpOutputString ) //wprintf( lpOutputString  )
+//#define GwenUtil_WideStringToFloat( _Str ) wcstof(_Str, NULL)
 
 #endif
 

@@ -34,7 +34,7 @@ namespace Gwen
 
 				Base( Gwen::Renderer::Base* renderer = NULL )
 				{
-					m_DefaultFont.facename = L"Arial";
+					m_DefaultFont.facename = L"res/OpenSans.ttf";
 					m_DefaultFont.size = 10.0f;
 					m_Render = renderer;
 				}
