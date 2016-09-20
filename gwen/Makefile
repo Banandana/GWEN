@@ -5,16 +5,13 @@ PREFIX  ?= ${VITASDK}/arm-vita-eabi
 CC      = arm-vita-eabi-gcc
 CXX     = arm-vita-eabi-g++
 AR      = arm-vita-eabi-ar
-CFLAGS  = -Wl,-q -Wall -O3 -I$(INCLUDES) -ffat-lto-objects -flto
+CFLAGS  = -Wl,-q -Wall -I$(INCLUDES) -ffat-lto-objects -flto
 CXXFLAGS = $(CFLAGS) -std=c++11 -g
 ASFLAGS = $(CFLAGS)
 
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
 
-LIBS := -lfreetype -lvita2d -lpng -ljpeg -lm -lc \
-		-lSceAppMgr_stub -lSceAppUtil_stub -lSceCommonDialog_stub \
-		-lSceCtrl_stub -lSceDisplay_stub -lSceGxm_stub -lSceIme_stub \
-		-lSceKernel_stub -lSceSysmodule_stub -lSceTouch_stub
+LIBS :=
 
 SRC_C :=$(call rwildcard, src/, *.c)
 SRC_CPP :=$(call rwildcard, src/, *.cpp)
@@ -37,7 +34,7 @@ out/%.o : src/%.cpp | $(OBJ_DIRS)
 	$(CXX) -Og -g -c $(CXXFLAGS) -o $@ $< $(LIBS)
 
 out/%.o : src/%.c | $(OBJ_DIRS)
-	$(CC) -g -Og -c $(CFLAGS) -o $@ $< $(LIBS)
+	$(CC) -Og -g -c $(CFLAGS) -o $@ $< $(LIBS)
 
 clean:
 	rm -rf $(TARGET_LIB) $(OBJS)
