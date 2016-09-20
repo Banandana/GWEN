@@ -44,6 +44,6 @@ clean:
 
 install: $(TARGET_LIB)
 	@mkdir -p $(PREFIX)/lib/
-	@mkdir -p $(PREFIX)/include/GWEN/
+	@mkdir -p $(PREFIX)/include/Gwen/
 	cp $(TARGET_LIB) $(PREFIX)/lib/
-	cp -r include/Gwen $(PREFIX)/include/
+	cp -r include/Gwen $(PREFIX)/include
