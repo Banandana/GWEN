@@ -1,12 +1,12 @@
 TARGET_LIB = libGWEN.a
-INCLUDES   = src include ${VITASDK}/arm-vita-eabi/include
+INCLUDES   = include
 
 PREFIX  ?= ${VITASDK}/arm-vita-eabi
 CC      = arm-vita-eabi-gcc
 CXX     = arm-vita-eabi-g++
 AR      = arm-vita-eabi-ar
 CFLAGS  = -Wl,-q -Wall -O3 -I$(INCLUDES) -ffat-lto-objects -flto
-CXXFLAGS += -std=c++11 -g
+CXXFLAGS = $(CFLAGS) -std=c++11 -g
 ASFLAGS = $(CFLAGS)
 
 rwildcard=$(foreach d,$(wildcard $1*),$(call rwildcard,$d/,$2) $(filter $(subst *,%,$2),$d))
